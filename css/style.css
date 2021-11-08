@@ -36,6 +36,17 @@ h6 {
   --bg-lt: var(--white);
 }
 
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 h1 {
   text-align: center;
   margin: 0.625rem 0;
@@ -103,6 +114,9 @@ h1 {
 
 .board__buttons>button {
   transition: all 0.125s;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .board__buttons>button:nth-child(1) {
@@ -167,6 +181,83 @@ h1 {
   background: var(--white);
   border-radius: 50%;
   padding: 1.25rem;
+}
+
+.board__controls>div {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.board__controls-level {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  background: var(--secondary);
+  border-radius: 0.25rem;
+  color: var(--black);
+  padding: 1.25rem 0.625rem 0.625rem 0.625rem;
+  box-shadow: 0px 0px 3px var(--primary);
+}
+
+.board__controls-level p {
+  text-transform: uppercase;
+  font-size: 1.125rem;
+}
+
+.board__controls-level>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board__controls-level label {
+  padding: 0 0.5rem;
+  margin-top: 0.625rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.board__controls-level label:before {
+  width: 0.375rem;
+  height: 0.375rem;
+  position: absolute;
+  top: -0.625rem;
+  left: calc(50% - 0.1875rem);
+  border-radius: 0.1875rem;
+  content: "";
+  background: var(--greenDk);
+  transition: all 0.25s;
+}
+
+.board__controls-level input[type="radio"]:checked+label:before {
+  background: var(--green);
+}
+
+.btn-start {
+  padding-top: 3.3125rem;
+  position: relative;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.btn-start:before {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1.5rem);
+  width: 3rem;
+  height: 3rem;
+  content: "";
+  background: var(--redDk);
+  border-radius: 1.5rem;
+  box-shadow: 0px 0px 3px var(--primary);
+}
+
+.btn-start:hover::before {
+  background: var(--red);
 }
 
 @media screen and (min-width: 800px) {

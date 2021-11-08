@@ -48,6 +48,17 @@ h6 {
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 h1 {
   text-align: center;
   margin: 10px 0;
@@ -119,6 +130,9 @@ h1 {
 
     > button {
       transition: all 0.125s;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
 
       &:nth-child(1) {
         background-color: var(--greenDk);
@@ -183,5 +197,86 @@ h1 {
     background: var(--white);
     border-radius: 50%;
     padding: 20px;
+
+    > div {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  }
+
+  &__controls-level {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background: var(--secondary);
+    border-radius: 4px;
+    color: var(--black);
+    padding: 20px 10px 10px 10px;
+    box-shadow: 0px 0px 3px var(--primary);
+    p {
+      text-transform: uppercase;
+      font-size: 18px;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label {
+      padding: 0 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      position: relative;
+
+      &:before {
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 3px);
+        border-radius: 3px;
+        content: "";
+        background: var(--greenDk);
+        transition: all 0.25s;
+      }
+    }
+
+    input[type="radio"] {
+      &:checked {
+        + label:before {
+          background: var(--green);
+        }
+      }
+    }
+  }
+}
+
+$startSz: 48px;
+.btn-start {
+  padding-top: $startSz + 5;
+  position: relative;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: 18px;
+  cursor: pointer;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: calc(50% - #{$startSz / 2});
+    width: $startSz;
+    height: $startSz;
+    content: "";
+    background: var(--redDk);
+    border-radius: $startSz / 2;
+    box-shadow: 0px 0px 3px var(--primary);
+  }
+
+  &:hover::before {
+    background: var(--red);
   }
 }
