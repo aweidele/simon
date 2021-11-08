@@ -1,1 +1,1 @@
-class Game{constructor(){this._initGame()}_initGame(){document.querySelectorAll("");this.sequence=[]}}const game=new Game;
+const btnStart=document.querySelector(".btn-start"),board=document.querySelector(".board__buttons"),boardBtns=document.querySelectorAll(".board__buttons button");console.log(boardBtns);class Game{constructor(){btnStart.addEventListener("click",this._initGame.bind(this))}_initGame(){document.querySelectorAll(".board__controls-level input").forEach((t=>{t.checked&&(this.level=t.value)})),this.sequence=[]}}const game=new Game;
