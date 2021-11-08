@@ -1,0 +1,1 @@
+class Game{constructor(){this._initGame()}_initGame(){document.querySelectorAll("");this.sequence=[]}}const game=new Game;
