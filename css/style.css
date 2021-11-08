@@ -27,13 +27,13 @@ h6 {
   --redDk: #960d0d;
   --blue: #4062bb;
   --blueDk: #24386a;
-  --green: #629365;
+  --green: #78a57b;
   --greenDk: #314933;
   --yellow: #faff70;
   --yellowDk: #9ea300;
   --white: #fdfdff;
   --black: var(--primary);
-  --bg-lt: var(--secondary);
+  --bg-lt: var(--white);
 }
 
 h1 {
@@ -77,14 +77,104 @@ h1 {
   color: var(--accent-1);
 }
 
-.container {
+.game {
   width: 80vmin;
   height: 80vmin;
   background-color: var(--red);
+  border-radius: 50%;
+  border: 0.25rem solid var(--primary);
+}
+
+.board {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.board__buttons {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  position: relative;
+  z-index: 0;
+}
+
+.board__buttons>button {
+  transition: all 0.125s;
+}
+
+.board__buttons>button:nth-child(1) {
+  background-color: var(--greenDk);
+  border-top-left-radius: 100%;
+  border-bottom: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+
+.board__buttons>button:nth-child(1):hover,
+.board__buttons>button:nth-child(1):focus {
+  background-color: var(--green);
+}
+
+.board__buttons>button:nth-child(2) {
+  background-color: var(--redDk);
+  border-top-right-radius: 100%;
+  border-bottom: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+}
+
+.board__buttons>button:nth-child(2):hover,
+.board__buttons>button:nth-child(2):focus {
+  background-color: var(--red);
+}
+
+.board__buttons>button:nth-child(3) {
+  background-color: var(--yellowDk);
+  border-bottom-left-radius: 100%;
+  border-top: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+
+.board__buttons>button:nth-child(3):hover,
+.board__buttons>button:nth-child(3):focus {
+  background-color: var(--yellow);
+}
+
+.board__buttons>button:nth-child(4) {
+  background-color: var(--blueDk);
+  border-bottom-right-radius: 100%;
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+}
+
+.board__buttons>button:nth-child(4):hover,
+.board__buttons>button:nth-child(4):focus {
+  background-color: var(--blue);
+}
+
+.board__controls {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.25rem solid var(--primary);
+  background: var(--white);
+  border-radius: 50%;
+  padding: 1.25rem;
 }
 
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 3.75rem;
+  }
+
+  .game {
+    border-width: 8px;
   }
 }
